@@ -9,10 +9,16 @@ var initial_position;
 var final_position;
 const SPEED = 0.5;
 
+
 func _ready():
 	$Sprite.play("Walk");
 	initial_position = position.x;
 	final_position = initial_position + DISTANCE;
+
+
+func damage():
+	self.queue_free();
+
 
 func _process(_delta):
 	if(!WALK):

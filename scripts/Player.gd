@@ -1,11 +1,12 @@
 extends KinematicBody2D;
 
 export(Vector2) var RESPAWN_POSITION = Vector2(0, 0);
+export(int) var SPEED = 300;
+export(bool) var DOUBLE_JUMP = true;
+export(int) var JUMP_HEIGHT = -390;
 
 const UP = Vector2(0, -1);
 const GRAVITY = 14;
-const SPEED = 300;
-const JUMP_HEIGHT = -455;
 var motion = Vector2();
 var extraJump = false;
 
@@ -49,7 +50,7 @@ func playerJump(button): #pulo e pulo duplo
 		if(Input.is_action_just_pressed(button)): #Pulo no chão
 			motion.y = JUMP_HEIGHT; #distancia do pulo
 	else: #se estiver voando animação de queda e pulo duplo
-		if(Input.is_action_just_pressed(button) && extraJump): #Pulo extra
+		if(DOUBLE_JUMP && Input.is_action_just_pressed(button) && extraJump): #Pulo extra
 			extraJump = false; #gasta o pulo
 			motion.y = JUMP_HEIGHT*0.85; #distancia do pulo
 			$SpriteAnimation.frame = 0; #reseta animação do pulo
@@ -64,9 +65,14 @@ func playerRespawn(button, respawn_position): #evento de respawn
 
 
 func playerCommandsHandler(acceleration): #controlador de comandos do player
-	playerMovement("ui_left", "ui_right",acceleration);
+	playerMovement("ui_left", "ui_right", acceleration);
 	playerJump("ui_up");
 	playerRespawn("ui_down", RESPAWN_POSITION);
+
+
+func _on_Pes_body_entered(body):
+	motion.y = JUMP_HEIGHT;
+	body.damage();
 
 
 func _physics_process(_delta):
@@ -75,3 +81,5 @@ func _physics_process(_delta):
 	isOnCeilingRemoveYAcceleration(); #retira acelleração caso bata no teto
 	playerCommandsHandler(acceleration); #todos comandos do player serão por esse controlador
 	move_and_slide(motion, UP);
+
+

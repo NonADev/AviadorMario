@@ -17,6 +17,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 RESPAWN_POSITION = Vector2( 448, 256 )
+SPEED = 400
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -27,6 +28,13 @@ tile_data = PoolIntArray( 327694, 1, 0, 524313, 0, 0, 524314, 1, 0, 524315, 1, 0
 [node name="Monster" parent="." instance=ExtResource( 13 )]
 position = Vector2( 832, 224 )
 
+[node name="Monster2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 832, 480 )
+DISTANCE = 30.0
+
+[node name="Monster3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1184, 448 )
+DISTANCE = 30.0
+
 [node name="Passagem" parent="." instance=ExtResource( 3 )]
-position = Vector2( 568, 288 )
 cenas = "res://scenes/Levels/PacifyWorld.tscn"

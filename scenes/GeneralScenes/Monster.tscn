@@ -45,6 +45,7 @@ radius = 10.9017
 height = 34.178
 
 [node name="Monster" type="StaticBody2D"]
+collision_layer = 4
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
