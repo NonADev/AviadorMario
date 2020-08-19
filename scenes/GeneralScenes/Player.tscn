@@ -1,0 +1,67 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://sprites/Player/Run3.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://sprites/Player/Jump4.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Player/Jump1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Player/Run7.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Player/Run2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Player/Idle0.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Player/Run1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Player/Run4.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Player/Jump0.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Player/Run0.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Player/Jump3.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.5472, 29 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 448, 256.14 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SpriteAnimation" type="AnimatedSprite" parent="."]
+position = Vector2( -0.135396, 16.1403 )
+frames = SubResource( 1 )
+animation = "Idle"
+offset = Vector2( 16, 16 )
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 15.8646, 35.9286 )
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 16.8548, 35.9188 )
+current = true
+zoom = Vector2( 0.8, 0.8 )
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 650
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="Pes" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Pes"]

@@ -1,5 +1,7 @@
 extends KinematicBody2D;
 
+export(Vector2) var RESPAWN_POSITION = Vector2(0, 0);
+
 const UP = Vector2(0, -1);
 const GRAVITY = 14;
 const SPEED = 300;
@@ -64,7 +66,7 @@ func playerRespawn(button, respawn_position): #evento de respawn
 func playerCommandsHandler(acceleration): #controlador de comandos do player
 	playerMovement("ui_left", "ui_right",acceleration);
 	playerJump("ui_up");
-	playerRespawn("ui_down", Vector2(448.0,256.14));
+	playerRespawn("ui_down", RESPAWN_POSITION);
 
 
 func _physics_process(_delta):

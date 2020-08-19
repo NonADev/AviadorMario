@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/GeneralScenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GeneralScenes/Monster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tileSet/ground.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/GeneralScenes/ParallaxBackgroundBlueSky.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/GeneralScenes/SabioCaminhante.tscn" type="PackedScene" id=5]
+
+[node name="Cena2" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, 160 )
+RESPAWN_POSITION = Vector2( 320, 160 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 448, 256.14 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -4, 3, 0, 65548, 0, 0, 65549, 2, 0, 131072, 3, 0, 131077, 0, 0, 131078, 2, 0 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+
+[node name="Monster" parent="." instance=ExtResource( 2 )]
+position = Vector2( 640, 288 )
+WALK = false
+FLIP_SPRITE = true
+
+[node name="Passagem" parent="." instance=ExtResource( 5 )]
+position = Vector2( 864, 256 )
+cenas = "res://scenes/Levels/AggressiveWorld.tscn"
