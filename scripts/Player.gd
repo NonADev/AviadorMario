@@ -7,15 +7,16 @@ const JUMP_HEIGHT = -455;
 var motion = Vector2();
 var extraJump = false;
 
-func PlayerMovement(acceleration):
+
+func playerMovement(leftButton, rightButton, acceleration):
 	if(!is_on_floor()):
 		$SpriteAnimation.play("Jump");
-	if(Input.is_action_pressed("ui_right")): #andar para direita
+	if(Input.is_action_pressed(rightButton)): #andar para direita
 		motion.x = acceleration;
 		if(is_on_floor()):
 			$SpriteAnimation.play("Run");
 		$SpriteAnimation.flip_h = false;
-	elif(Input.is_action_pressed("ui_left")): #andar para esquerda
+	elif(Input.is_action_pressed(leftButton)): #andar para esquerda
 		motion.x = -acceleration;
 		if(is_on_floor()):
 			$SpriteAnimation.play("Run");
@@ -38,27 +39,37 @@ func isFloatingSlowdown(acceleration): #se estiver flutuando, desaselera o "anda
 		return acceleration;
 
 
-func Playerjump(): #pulo e pulo duplo
+func playerJump(button): #pulo e pulo duplo
 	if(is_on_floor()): #pulo
 		extraJump = true; #reseta pulo duplo
 		if(motion.y>0):
 			motion.y=GRAVITY;
-		if(Input.is_action_just_pressed("ui_up")): #Pulo no chão
+		if(Input.is_action_just_pressed(button)): #Pulo no chão
 			motion.y = JUMP_HEIGHT; #distancia do pulo
 	else: #se estiver voando animação de queda e pulo duplo
-		if(Input.is_action_just_pressed("ui_up") && extraJump): #Pulo extra
+		if(Input.is_action_just_pressed(button) && extraJump): #Pulo extra
 			extraJump = false; #gasta o pulo
-			motion.y = JUMP_HEIGHT; #distancia do pulo
+			motion.y = JUMP_HEIGHT*0.85; #distancia do pulo
 			$SpriteAnimation.frame = 0; #reseta animação do pulo
 		if(motion.y<GRAVITY*28): #atração da gravidade
 			motion.y += GRAVITY; #adição da gravidade
 
 
+func playerRespawn(button, respawn_position): #evento de respawn
+	if(Input.is_action_just_pressed(button)):
+		motion = Vector2(0,14); #reseta o motion para restar a movimentação e aceleração do personagem
+		position = respawn_position; #altera o atributo hidden "position" do Player.
+
+
+func playerCommandsHandler(acceleration): #controlador de comandos do player
+	playerMovement("ui_left", "ui_right",acceleration);
+	playerJump("ui_up");
+	playerRespawn("ui_down", Vector2(448.0,256.14));
+
+
 func _physics_process(_delta):
 	var acceleration = SPEED; #aceleração=velocidade-atrito
-	isOnCeilingRemoveYAcceleration();
-	acceleration = isFloatingSlowdown(acceleration);
-	isOnCeilingRemoveYAcceleration();
-	PlayerMovement(acceleration);
-	Playerjump();
+	acceleration = isFloatingSlowdown(acceleration); #se estiver no ar diminui aceleração lateral
+	isOnCeilingRemoveYAcceleration(); #retira acelleração caso bata no teto
+	playerCommandsHandler(acceleration); #todos comandos do player serão por esse controlador
 	move_and_slide(motion, UP);

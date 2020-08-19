@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sprites/Player/Run2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://sprites/Player/Jump4.png" type="Texture" id=13]
 [ext_resource path="res://scripts/World.gd" type="Script" id=14]
 [ext_resource path="res://sprites/Background/back.jpg" type="Texture" id=15]
+[ext_resource path="res://scenes/Monster.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -47,6 +48,7 @@ __meta__ = {
 layer = -1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 0.4 )
 motion_mirroring = Vector2( 960, 608 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -90,3 +92,6 @@ tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 524313, 0, 0, 524314, 1, 0, 524315, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 2, 0, 589871, 3, 0, 589876, 0, 0, 589877, 2, 0, 655370, 0, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 2, 0, 720940, 3, 0, 852009, 3, 0, 983076, 0, 0, 983077, 1, 0, 983078, 2, 0, 1048601, 0, 0, 1048602, 1, 0, 1048603, 2, 0, 1245209, 0, 0, 1245210, 1, 0, 1245211, 1, 0, 1245212, 1, 0, 1245213, 1, 0, 1245214, 1, 0, 1245215, 1, 0, 1245216, 1, 0, 1245217, 2, 0 )
+
+[node name="Monster" parent="." instance=ExtResource( 16 )]
+position = Vector2( 832, 224 )
