@@ -78,6 +78,8 @@ shape = SubResource( 2 )
 position = Vector2( 16.8548, 35.9188 )
 current = true
 zoom = Vector2( 0.8, 0.8 )
+limit_right = 1920
+limit_bottom = 650
 limit_smoothed = true
 smoothing_enabled = true
 
