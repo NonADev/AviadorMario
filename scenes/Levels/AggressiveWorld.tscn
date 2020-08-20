@@ -27,10 +27,14 @@ tile_data = PoolIntArray( 327694, 1, 0, 524313, 0, 0, 524314, 1, 0, 524315, 1, 0
 
 [node name="Monster" parent="." instance=ExtResource( 13 )]
 position = Vector2( 832, 224 )
+DISTANCE = 115.0
+IDLE_FLIP = true
 
 [node name="Monster2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 832, 480 )
 DISTANCE = 30.0
+CAN_WALK = false
+IDLE_FLIP = true
 
 [node name="Monster3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1184, 448 )

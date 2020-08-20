@@ -23,8 +23,7 @@ tile_data = PoolIntArray( -4, 3, 0, 65548, 0, 0, 65549, 2, 0, 131072, 3, 0, 1310
 
 [node name="Monster" parent="." instance=ExtResource( 2 )]
 position = Vector2( 640, 288 )
-WALK = false
-FLIP_SPRITE = true
+CAN_WALK = false
 
 [node name="Passagem" parent="." instance=ExtResource( 5 )]
 position = Vector2( 864, 256 )
