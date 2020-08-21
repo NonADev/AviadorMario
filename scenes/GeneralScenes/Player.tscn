@@ -31,20 +31,23 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 9.59683
 height = 33.5032
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8.9693, 5.00665 )
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 11.0115
 height = 31.3549
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 448, 256 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="SpriteAnimation" type="AnimatedSprite" parent="."]
 position = Vector2( -0.135396, 16.1403 )
@@ -65,7 +68,7 @@ smoothing_enabled = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 17.2437, 37.7489 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Pes" type="Area2D" parent="."]
 position = Vector2( 17.0141, 62.8459 )
@@ -83,6 +86,6 @@ collision_mask = 4
 
 [node name="Collision" type="CollisionShape2D" parent="TakeDamage"]
 position = Vector2( 0.275604, 0.401184 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="Pes" to="." method="_on_Pes_body_entered"]
 [connection signal="body_entered" from="TakeDamage" to="." method="_on_Damage_body_entered"]

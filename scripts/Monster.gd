@@ -27,8 +27,16 @@ func damage():
 	return true;
 
 
+func revive():
+	alive = true;
+	CAN_WALK = true;
+	$Shape.set_deferred("disabled", false);
+	$Sprite.set_deferred("visible", true);
+
+
 func removeBody():
-	self.queue_free();
+	$Sprite.set_deferred("visible", false);
+	#self.queue_free();
 
 
 func _process(_delta):

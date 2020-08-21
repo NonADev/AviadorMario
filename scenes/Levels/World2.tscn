@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/GeneralScenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GeneralScenes/Monster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tileSet/Jungle.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/GeneralScenes/ParallaxBackgroundBlueSky.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/GeneralScenes/SabioCaminhante.tscn" type="PackedScene" id=5]
+
+[node name="Cena2" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, 160 )
+RESPAWN_POSITION = Vector2( 320, 160 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 448, 256.14 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -458767, 4, 0, -524242, 4, 0, -393231, 4, 0, -458706, 4, 0, -327695, 4, 0, -393170, 4, 0, -262159, 4, 0, -327634, 4, 0, -196623, 4, 0, -262098, 4, 0, -131087, 4, 0, -196562, 4, 0, -65551, 4, 0, -65541, 0, 0, -65540, 0, 1, -65539, 0, 2, -131026, 4, 0, -15, 4, 0, -5, 0, 65536, -4, 0, 65537, -3, 0, 65538, -65490, 4, 0, 65521, 4, 0, 65531, 5, 0, 65532, 6, 0, 65533, 7, 0, 11, 0, 0, 12, 0, 1, 13, 0, 1, 14, 0, 2, 46, 4, 0, 131057, 4, 0, 131071, 0, 0, 65536, 0, 2, 65541, 0, 0, 65542, 0, 2, 65547, 0, 65536, 65548, 0, 65537, 65549, 0, 65537, 65550, 0, 65538, 65582, 4, 0, 196593, 4, 0, 196607, 0, 65536, 131072, 0, 65538, 131077, 0, 65536, 131078, 0, 65538, 131083, 5, 0, 131084, 6, 0, 131085, 6, 0, 131086, 7, 0, 131118, 4, 0, 262129, 4, 0, 262143, 5, 0, 196608, 7, 0, 196613, 5, 0, 196614, 7, 0, 196654, 4, 0, 327665, 4, 0, 262190, 4, 0, 393201, 4, 0, 327726, 4, 0, 458737, 4, 0, 393262, 4, 0, 524273, 4, 0, 458798, 4, 0, 589809, 4, 0, 524334, 4, 0, 655345, 4, 0, 589870, 4, 0, 720881, 4, 0, 655406, 4, 0, 786417, 4, 0, 720942, 4, 0, 786478, 4, 0, 852014, 4, 0 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+
+[node name="Monster" parent="." instance=ExtResource( 2 )]
+position = Vector2( 640, 288 )
+CAN_WALK = false
+
+[node name="Passagem" parent="." instance=ExtResource( 5 )]
+position = Vector2( 864, 256 )
+cenas = "res://scenes/Levels/World1.tscn"

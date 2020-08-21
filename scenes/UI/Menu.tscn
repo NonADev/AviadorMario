@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+scene = "res://scenes/Levels/World1.tscn"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -22,6 +23,9 @@ margin_left = 481.0
 margin_top = 269.0
 margin_right = 542.0
 margin_bottom = 331.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 61.0
@@ -32,7 +36,7 @@ text = "MY GAME"
 margin_top = 18.0
 margin_right = 61.0
 margin_bottom = 38.0
-text = "START"
+text = "PLAY"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 42.0

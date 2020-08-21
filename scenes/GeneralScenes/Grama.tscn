@@ -24,7 +24,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="1" type="Sprite" parent="."]
-position = Vector2( 32, 0 )
+position = Vector2( 64, 0 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -40,7 +40,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="2" type="Sprite" parent="."]
-position = Vector2( 64, 0 )
+position = Vector2( 128, 0 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -56,7 +56,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="3" type="Sprite" parent="."]
-position = Vector2( 96, 0 )
+position = Vector2( 192, 0 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -72,7 +72,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="4" type="Sprite" parent="."]
-position = Vector2( 128, 0 )
+position = Vector2( 0, 64 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -88,7 +88,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="5" type="Sprite" parent="."]
-position = Vector2( 160, 0 )
+position = Vector2( 64, 64 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -104,7 +104,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="6" type="Sprite" parent="."]
-position = Vector2( 192, 0 )
+position = Vector2( 128, 64 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
