@@ -125,7 +125,7 @@ script = ExtResource( 11 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.13, 0.13 )
 frames = SubResource( 1 )
-animation = "Die"
+animation = "Idle"
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2( -1.12378, 3.93307 )

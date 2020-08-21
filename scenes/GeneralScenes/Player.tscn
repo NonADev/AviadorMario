@@ -15,20 +15,20 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Run",
-"speed": 10.0
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 3 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 4.0
+"frames": [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
