@@ -51,7 +51,6 @@ func removeBody():
 
 
 func _process(_delta):
-	print(CAN_WALK)
 	if(!CAN_WALK):
 		if(alive):
 			$Sprite.play("Idle")

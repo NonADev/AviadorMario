@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal player_has_died
+signal health_has_changed(value)
 
 export(Vector2) var RESPAWN_POSITION = Vector2(0, 0) #posição de respawn
 export(int) var SPEED = 240 #velocidade de movimento
@@ -94,7 +95,7 @@ func _on_Pes_body_entered(body):
 
 #Cura player
 func applyHealOnPlayer(points):
-	HEALTH_POINTS += points
+	HEALTH_POINTS = clamp(points, 0, 3)
 
 
 #aplica dano no player
@@ -104,12 +105,12 @@ func applyDamageOnPlayer(points):
 	else: #morte
 		applyHealOnPlayer(3) #reseta o contador de vida
 		applyDeathOnPlayer() #aplica morte
+	emit_signal("health_has_changed", HEALTH_POINTS)
 
 
 #aplica morte ao player
 func applyDeathOnPlayer():
 	emit_signal("player_has_died")
-	print("emitindo sinal")	
 	respawn(RESPAWN_POSITION)  #LEGADO PELA MORTE RESETAR O SCENE ATUAL
 
 
@@ -133,7 +134,3 @@ func _physics_process(_delta):
 	motion.x *= acceleration #aumenta velocidade de movimento
 	killByYPosition() #mata se passar da posição
 	move_and_slide(motion, UP) #movimenta o Player
-
-
-
-

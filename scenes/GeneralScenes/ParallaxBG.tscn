@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/GeneralScenes/ParallaxBackgroundBlueSky.tscn" type="PackedScene" id=1]
+
+[node name="ParallaxBG" type="CanvasLayer"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+layer = -1
+scroll_base_scale = Vector2( 0.8, 0.8 )

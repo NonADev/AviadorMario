@@ -41,11 +41,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 31 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 36 ) ],
-"loop": false,
-"name": "Die",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Walk",
@@ -55,11 +50,16 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 16.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "Die",
+"speed": 20.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 10.9017
-height = 34.178
+radius = 13.6163
+height = 25.4111
 
 [sub_resource type="Animation" id=3]
 resource_name = "Die"
