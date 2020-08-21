@@ -22,9 +22,10 @@ config/icon="res://sprites/Old/icon.png"
 [display]
 
 window/size/resizable=false
-window/size/test_width=1280
-window/size/test_height=720
+window/size/test_width=1024
+window/size/test_height=768
 window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [importer_defaults]
 

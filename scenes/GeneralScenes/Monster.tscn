@@ -41,11 +41,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 25 ), ExtResource( 14 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 16.0
-}, {
 "frames": [ ExtResource( 31 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 36 ) ],
 "loop": false,
 "name": "Die",
@@ -55,6 +50,11 @@ animations = [ {
 "loop": true,
 "name": "Walk",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 14 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 16.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -70,11 +70,11 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "removeBody"
+"method": "desactiveWalk"
 } ]
 }
 tracks/1/type = "value"
@@ -89,6 +89,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [ "Die" ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "activeWalk"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "removeBody"
+} ]
+}
 
 [node name="Monster" type="StaticBody2D"]
 collision_layer = 4
@@ -97,7 +125,7 @@ script = ExtResource( 11 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.13, 0.13 )
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "Die"
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2( -1.12378, 3.93307 )

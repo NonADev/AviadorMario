@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal player_has_died
+
 export(Vector2) var RESPAWN_POSITION = Vector2(0, 0) #posição de respawn
 export(int) var SPEED = 240 #velocidade de movimento
 export(bool) var DOUBLE_JUMP = true #pulo duplo
@@ -106,8 +108,9 @@ func applyDamageOnPlayer(points):
 
 #aplica morte ao player
 func applyDeathOnPlayer():
-	get_tree().reload_current_scene()
-	#respawn(RESPAWN_POSITION)  #LEGADO PELA MORTE RESETAR O SCENE ATUAL
+	emit_signal("player_has_died")
+	print("emitindo sinal")	
+	respawn(RESPAWN_POSITION)  #LEGADO PELA MORTE RESETAR O SCENE ATUAL
 
 
 #receber dano no layer 3
